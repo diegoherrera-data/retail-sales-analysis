@@ -8,7 +8,7 @@ The goal was to move beyond simple charts and provide a tool for identifying fin
 ---
 
 ## Dashboard Preview
-![Dashboard Screenshot](Retail sales dashboard.png) 
+![Dashboard Screenshot](Retailsalesdashboard.png) 
 *(Note: Upload your screenshot to the repository and replace the name above)*
 
 ---
