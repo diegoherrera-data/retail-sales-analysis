@@ -1,72 +1,60 @@
 # Retail Sales Performance Dashboard
 
 ## Overview
-This project analyzes retail sales performance to identify key drivers of revenue and profitability.  
-The analysis explores customer segments, regional performance, product categories, and the impact of discounts on profit.
+This project analyzes retail sales performance to identify key drivers of revenue and profitability. I transformed raw sales data into meaningful business insights, focusing on customer segments, regional performance, and the critical impact of discounts on profit.
 
-The goal of this project is to transform raw sales data into meaningful business insights through data analysis and visualization.
+The goal was to move beyond simple charts and provide a tool for identifying financial risks and growth opportunities.
+
+---
+
+## Dashboard Preview
+![Dashboard Screenshot](Retail sales dashboard.png) 
+*(Note: Upload your screenshot to the repository and replace the name above)*
 
 ---
 
 ## Tools Used
-
-- SQL – Data exploration and business queries
-- Power BI – Data visualization and dashboard creation
-- Excel – Initial data inspection and data cleaning
-
----
-
-## Dataset
-
-The dataset contains retail sales transactions including the following fields:
-
-- Order Date
-- Region
-- Customer Segment
-- Category
-- Sub-Category
-- Sales
-- Quantity
-- Discount
-- Profit
-
-These variables allow analysis of sales performance, profitability, and pricing strategies.
+- **SQL:** Data exploration and business logic validation.
+- **Power BI:** Data visualization, DAX measures, and interactive reporting.
+- **Excel:** Initial data inspection and cleaning.
 
 ---
 
-## Business Questions
-
-The project focuses on answering the following business questions:
-
+## Business Questions Answered
 1. Which customer segment generates the most profit?
 2. Which products have the lowest sales performance?
-3. Which products generate negative profit?
-4. How do discounts impact profitability?
+3. **Which products generate negative profit?** (Analyzed using conditional formatting).
+4. How do discounts impact profitability? (Correlation analysis via Scatter Chart).
 5. Which region generates the highest profit?
 
 ---
 
+##  Key Insights (Executive Summary)
+* **Profitability Warning:** Through **conditional formatting (red highlights)**, I identified that **Tables** and **Bookcases** are the main drivers of negative profit, despite having significant sales volume.
+* **Discount Correlation:** The analysis shows that aggressive discounting (above 20%) consistently leads to losses, particularly in the Furniture category.
+* **Top Performer:** The **Consumer segment** remains the primary source of income, while the **West region** is the most efficient in terms of net profit.
+
+---
+
 ## SQL Analysis
-
-SQL queries were used to explore the dataset and identify patterns before building the dashboard.
-
-Example queries:
+Before building the dashboard, I used SQL to explore the dataset and validate the business logic.
 
 ```sql
--- Profit by Region
+-- 1. Profit by Region
 SELECT Region, SUM(Profit) AS Total_Profit
 FROM sales
 GROUP BY Region
 ORDER BY Total_Profit DESC;
 
--- Profit by Customer Segment
+-- 2. Profit by Customer Segment
 SELECT Segment, SUM(Profit) AS Total_Profit
 FROM sales
 GROUP BY Segment
 ORDER BY Total_Profit DESC;
 
--- Sub-Categories with Negative Profit
+-- 3. Identifying Sub-Categories with Negative Profit (Financial Risks)
 SELECT Sub_Category, SUM(Profit) AS Total_Profit
 FROM sales
 GROUP BY Sub_Category
-HAVING SUM(Profit) < 0;
+HAVING SUM(Profit) < 0
+ORDER BY Total_Profit ASC;
