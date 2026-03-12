@@ -58,3 +58,20 @@ FROM sales
 GROUP BY Sub_Category
 HAVING SUM(Profit) < 0
 ORDER BY Total_Profit ASC;
+```
+
+---
+
+## 🚀 Conclusions & Business Recommendations
+
+1. **Strategic Pricing:** Se recomienda revisar la política de descuentos en las categorías de **Furniture** (específicamente Tables y Bookcases). El análisis demuestra que el volumen de ventas no compensa el margen perdido por descuentos agresivos.
+2. **Regional Optimization:** Dado que la **West Region** presenta la mayor eficiencia operativa, se sugiere documentar sus procesos logísticos o de ventas para replicar el modelo en regiones con menor rendimiento.
+3. **Inventory Management:** Los productos identificados con rentabilidad negativa deberían ser evaluados para una posible descontinuación o un cambio de proveedor para reducir costos de adquisición.
+4. **Segment Focus:** El segmento **Consumer** es el motor del negocio; fidelizar a este grupo mediante campañas personalizadas asegurará el flujo de caja necesario para financiar la reestructuración de las categorías menos rentables.
+
+---
+
+## 📄 Repository Files
+- `retail_sales_clean.csv`: Cleaned and processed dataset used for this analysis.
+- `Retail sales dashboard.pbix`: Interactive Power BI dashboard.
+- `Retail_sales_dashboard.png`: High-resolution preview of the final report.
